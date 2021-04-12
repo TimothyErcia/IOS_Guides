@@ -29,24 +29,16 @@ struct Lesson3View: View {
                         emailAddress: $emailAddress,
                         mobileNumber: $mobileNumber,
                         password: $password,
-                        message: $message)
+                        message: $message,
+                        buttonToggle: $showToast)
                   .keyboardManagement()
                
-               Button(action: {
-                  self.showToast.toggle()
-               }){
-                  Text("Send")
-                     .frame(width: 200, height: 50)
-                     .background(Color.blue)
-                     .foregroundColor(Color.white)
-                     .cornerRadius(8)
-                     .padding()
-                     .padding(.bottom, 80)
-               }
             }
             
             if showToast {
                toastView(isShown: $showToast)
+                  .transition(.asymmetric(insertion: .offset(x: 0, y: -80), removal: .offset(x: 0, y: 60)))
+                  .animation(.easeInOut)
             }
             
          }
@@ -79,7 +71,7 @@ private struct appBar: View {
          }
       }
       .padding()
-      .background(Color.blue.edgesIgnoringSafeArea(.top).shadow(color: .black, radius: 8))
+      .background(Color.blue.edgesIgnoringSafeArea(.top).shadow(color: .black, radius: 3))
    }
 }
 
@@ -90,37 +82,65 @@ private struct formView: View {
    @Binding var mobileNumber: String
    @Binding var password: String
    @Binding var message: String
+   @Binding var buttonToggle: Bool
    
    var body: some View {
       GeometryReader{ geo in
          VStack {
-            Form {
-               Section(header: Text("This is a header value of section")){
-                  TextField("First Name", text: self.$firstName)
-                     .keyboardType(.alphabet)
-                  TextField("Last Name", text: self.$lastName)
-                     .keyboardType(.alphabet)
-                  TextField("Email Address", text: self.$emailAddress)
-                  TextField("Mobile Number", text: self.$mobileNumber)
-               }
-               
-               Section(footer: Text("This is a footer value of section")){
+            
+            ScrollView {
+               VStack {
+                  InputView(placeholder: "First Name", text: self.$firstName)
+                  
+                  InputView(placeholder: "Last Name", text: self.$lastName)
+                  
+                  InputView(placeholder: "Email Address", text: self.$emailAddress)
+                  
+                  InputView(placeholder: "Mobile Number", text: self.$mobileNumber)
+                  
                   SecureField("Password", text: self.$password)
-                     .keyboardType(.alphabet)
-               }
-               
-               Section{
+                  .keyboardType(.alphabet)
+                  .padding(10)
+                  .overlay(Divider(), alignment: .bottom)
+                  
                   CustomTextEditor(placeholder:"Message",
-                                   message: self.$message)
-                     .frame(height: 120)
+                                message: self.$message)
+                  .frame(height: 120)
+                  .overlay(Divider(), alignment: .bottom)
+                  
+                  HStack(alignment: .center) {
+                     Spacer()
+                     Button(action: {
+                        self.buttonToggle.toggle()
+                     }){
+                        Text("Send")
+                           .frame(width: 200, height: 50)
+                           .background(Color.blue)
+                           .foregroundColor(Color.white)
+                           .cornerRadius(8)
+                     }.padding()
+                     Spacer()
+                  }
                }
             }
-            .onAppear(){
-               UITableView.appearance().backgroundColor = .white
-            }
+            
          }
          .padding(.horizontal)
       }
+   }
+}
+
+private struct InputView: View {
+   var placeholder: String
+   @Binding var text: String
+   
+   var body: some View {
+      VStack {
+         TextField(self.placeholder, text: self.$text)
+         .keyboardType(.alphabet)
+      }
+      .padding(10)
+      .overlay(Divider(), alignment: .bottom)
    }
 }
 
@@ -178,27 +198,23 @@ private struct toastView: View {
    
    var body: some View {
       VStack{
-         if isShown {
-            Button(action: {
-               self.dismiss()
-            }){
-               HStack{
-                  Text("Sample Toast button")
-                  Spacer()
-               }
+         Button(action: {
+            self.dismiss()
+         }){
+            HStack{
+               Text("Sample Toast button")
+               Spacer()
             }
-            .frame(width: 350, height: 50)
-            .padding(.horizontal)
-            .foregroundColor(Color.white)
-            .background(Color.green)
-            .cornerRadius(8)
-            .offset(y: 60)
-            .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top)))
          }
+         .frame(width: 350, height: 50)
+         .padding(.horizontal)
+         .foregroundColor(Color.white)
+         .background(Color.green)
+         .cornerRadius(8)
+         .offset(x: 0, y: isShown ? 60 : -80)
          
          Spacer()
       }
-      .animation(.default)
       .onAppear(){
          self.dismiss()
       }
@@ -233,6 +249,7 @@ private struct KeyboardManagement: ViewModifier {
         }
     }
 }
+
 
 extension View {
     func keyboardManagement() -> some View {

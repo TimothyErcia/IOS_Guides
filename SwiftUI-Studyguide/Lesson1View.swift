@@ -78,15 +78,24 @@ private struct appBar: View {
                .navigationBarBackButtonHidden(true)
                .navigationBarHidden(true)
                .foregroundColor(Color.white)
+            
             Spacer()
+            
+            
+            NavigationLink(destination: AboutView(), label: {
+               Image(systemName: "questionmark.circle.fill")
+                  .resizable()
+                  .frame(width: 30, height: 30)
+                  .foregroundColor(.white)
+            })
          }
       }
       .padding()
-      .background(Color.blue.edgesIgnoringSafeArea(.top).shadow(color: .black, radius: 8))
+      .background(Color.blue.edgesIgnoringSafeArea(.top).shadow(color: .black, radius: 3))
    }
 }
 
-struct InputView: View {
+private struct InputView: View {
    @Binding var fieldValue: String;
    var fieldName: String;
    var isDisabled: Bool = false
@@ -113,7 +122,7 @@ struct InputView: View {
    }
 }
 
-struct StepperView: View {
+private struct StepperView: View {
    @Binding var splitValue: Int
    var fieldName: String
    var eventFunction: () -> Void

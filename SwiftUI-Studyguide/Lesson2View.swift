@@ -79,7 +79,7 @@ private struct appBar: View {
          }
       }
       .padding()
-      .background(Color.blue.edgesIgnoringSafeArea(.top).shadow(color: .black, radius: 8))
+      .background(Color.blue.edgesIgnoringSafeArea(.top).shadow(color: .black, radius: 3))
    }
 }
 
