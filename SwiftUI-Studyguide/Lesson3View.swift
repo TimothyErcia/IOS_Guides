@@ -33,6 +33,11 @@ struct Lesson3View: View {
                         buttonToggle: $showToast)
                   .keyboardManagement()
                
+               GeometryReader { geo in
+                  NavigationLink(destination: Lesson4View()) {
+                     Text("Go to Lesson 4")
+                  }
+               }.frame(height: 20)
             }
             
             if showToast {
