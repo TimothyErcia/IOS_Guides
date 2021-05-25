@@ -10,19 +10,17 @@ import SwiftUI
 
 struct Lesson4View: View {
    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-   @State var posts: [Post] = []
+   @State var posts: [Post] = [Post]()
    @State var samplePost: Post = Post(id: 1, userId: 1, title: "sample title", body: "sample body")
    
    var body: some View {
-      NavigationView {
-         VStack {
-            appBar(presentationMode: presentationMode, sampleData: $samplePost, collection: $posts)
-            DataView(posts: $posts)
-            Spacer()
-         }.onAppear {
-            APICollection().getAllPost { (res) in
-               self.posts = res
-            }
+      VStack {
+         appBar(presentationMode: presentationMode, sampleData: $samplePost, collection: $posts)
+         DataView(posts: $posts)
+         Spacer()
+      }.onAppear {
+         APICollection().getAllPost { (res) in
+            self.posts = res
          }
       }
    }

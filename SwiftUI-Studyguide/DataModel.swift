@@ -15,6 +15,14 @@ struct Post: Codable, Identifiable{
    var body: String = ""
 }
 
+struct Album: Codable, Identifiable{
+   var id: Int = 0
+   var albumId: Int = 0
+   var title: String = ""
+   var url: String = ""
+   var thumbnailUrl: String = ""
+}
+
 class APICollection {
    func getAllPost(completion: @escaping ([Post]) -> ()){
       guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
@@ -145,5 +153,26 @@ class APICollection {
          
       }.resume()
       
+   }
+   
+   func getAllAlbums(completion: @escaping ([Album]) -> ()){
+      guard let url = URL(string: "https://jsonplaceholder.typicode.com/photos") else { return }
+      
+      var request = URLRequest(url: url)
+      request.httpMethod = "GET"
+      
+      URLSession.shared.dataTask(with: request) { (data, response, error) in
+         guard let albumData = data else { return }
+         
+         do {
+            let album = try JSONDecoder().decode([Album].self, from: albumData)
+            DispatchQueue.main.async {
+               completion(album)
+            }
+            
+         } catch {
+            print(error)
+         }
+      }.resume()
    }
 }

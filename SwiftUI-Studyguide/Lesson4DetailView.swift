@@ -35,7 +35,7 @@ struct Lesson4DetailView: View {
             Text("Body")
                .fontWeight(.bold)
             Text("\(postDetail.body)")
-               .frame(height: 25)
+               .lineLimit(nil)
             
             Button(action: {
                APICollection().deletePost(id: "\(self.postDetail.id)"){ (res) in

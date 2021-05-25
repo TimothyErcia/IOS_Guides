@@ -9,56 +9,56 @@
 import SwiftUI
 
 struct Lesson1View: View {
+   @Environment (\.presentationMode) var presentationMode: Binding<PresentationMode>
    @State private var tip: String = ""
    @State private var bill: String = ""
    @State private var total: String = ""
    @State private var split: Int = 1;
    
    var body: some View {
-      NavigationView {
-         VStack {
-            appBar()
-            ModifiedBackground {
-               GeometryReader { geometry in
-                  VStack (alignment: .leading, spacing: 10) {
-                     
-                     Text("Tip Calculator")
-                        .font(.title)
-                        .padding(12)
-                     
-                     InputView(fieldValue: self.$bill,
-                               fieldName: "Bill",
-                               eventFunction: { self.calculateTotal() })
-                     
-                     InputView(fieldValue: self.$tip,
-                               fieldName: "Tip",
-                               eventFunction: { self.calculateTotal() })
-                     
-                     StepperView(splitValue: self.$split,
-                                 fieldName: "Split",
-                                 eventFunction: { self.calculateTotal() })
-                     
-                     InputView(fieldValue: self.$total,
-                               fieldName: "Total",
-                               isDisabled: true,
-                               eventFunction: {nil})
-                     
-                     NavigationLink(destination: Lesson2View(), label: {
-                        Text("Go to Lesson 2")
-                           .frame(width: geometry.size.width, alignment: .center)
-                           .padding(.top, 20)
-                     })
-                     
-                     Spacer()
-                  }
+      VStack {
+         appBar(presentationMode: self.presentationMode)
+         ModifiedBackground {
+            GeometryReader { geometry in
+               VStack (alignment: .leading, spacing: 10) {
+                  
+                  Text("Tip Calculator")
+                     .font(.title)
+                     .padding(12)
+                  
+                  InputView(fieldValue: self.$bill,
+                            fieldName: "Bill",
+                            eventFunction: { self.calculateTotal() })
+                  
+                  InputView(fieldValue: self.$tip,
+                            fieldName: "Tip",
+                            eventFunction: { self.calculateTotal() })
+                  
+                  StepperView(splitValue: self.$split,
+                              fieldName: "Split",
+                              eventFunction: { self.calculateTotal() })
+                  
+                  InputView(fieldValue: self.$total,
+                            fieldName: "Total",
+                            isDisabled: true,
+                            eventFunction: {nil})
+                  
+                  NavigationLink(destination: Lesson2View(), label: {
+                     Text("Go to Lesson 2")
+                        .frame(width: geometry.size.width, alignment: .center)
+                        .padding(.top, 20)
+                  })
+                  
+                  Spacer()
                }
             }
-            .onTapGesture {
-               UIApplication.shared.endEditing()
-            }
          }
+         .onTapGesture {
+            UIApplication.shared.endEditing()
+         }
+         
+         Spacer()
       }
-      .navigationBarHidden(true)
    }
    
    func calculateTotal(){
@@ -70,14 +70,23 @@ struct Lesson1View: View {
 }
 
 private struct appBar: View {
+   @Binding var presentationMode: PresentationMode
    var body: some View {
       VStack {
          HStack {
-            Text("Lesson 1")
-               .navigationBarTitle("")
-               .navigationBarBackButtonHidden(true)
-               .navigationBarHidden(true)
-               .foregroundColor(Color.white)
+            
+            Button(action: {
+               self.$presentationMode.wrappedValue.dismiss()
+            }){
+               Image(systemName: "chevron.left")
+                  .foregroundColor(Color.white)
+               
+               Text("Lesson 1")
+                  .navigationBarTitle("")
+                  .navigationBarBackButtonHidden(true)
+                  .navigationBarHidden(true)
+                  .foregroundColor(Color.white)
+            }
             
             Spacer()
             

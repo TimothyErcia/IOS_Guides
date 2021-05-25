@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D16FC0826441C4100E58A6E /* CoreDataStudyGuide.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D16FC0626441C4100E58A6E /* CoreDataStudyGuide.xcdatamodeld */; };
 		4D19BD0E2639B14B00A116BC /* Lesson4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19BD0D2639B14B00A116BC /* Lesson4DetailView.swift */; };
 		4D329E602624799C001089D3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D329E5F2624799C001089D3 /* AboutView.swift */; };
+		4D418771264A3C98001D522D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D418770264A3C98001D522D /* CoreDataManager.swift */; };
+		4D418773265218D9001D522D /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D418772265218D9001D522D /* TabsView.swift */; };
+		4D4857B4264186C400E7C8B9 /* Lesson5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4857B3264186C400E7C8B9 /* Lesson5View.swift */; };
+		4D4857B826418B3900E7C8B9 /* Lesson6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4857B726418B3900E7C8B9 /* Lesson6View.swift */; };
+		4D4857BA26419D6C00E7C8B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4857B926419D6C00E7C8B9 /* HomeView.swift */; };
 		4D4EB66825F68B9400D6B2E4 /* Lesson1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4EB66725F68B9400D6B2E4 /* Lesson1View.swift */; };
 		4D4EB66C25F68D1E00D6B2E4 /* Lesson3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4EB66B25F68D1E00D6B2E4 /* Lesson3View.swift */; };
 		4D8A859B25DD5DC90043C724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A859A25DD5DC90043C724 /* AppDelegate.swift */; };
@@ -22,8 +28,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D16FC0726441C4100E58A6E /* CoreDataStudyGuide.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStudyGuide.xcdatamodel; sourceTree = "<group>"; };
 		4D19BD0D2639B14B00A116BC /* Lesson4DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson4DetailView.swift; sourceTree = "<group>"; };
 		4D329E5F2624799C001089D3 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		4D418770264A3C98001D522D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4D418772265218D9001D522D /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		4D4857B3264186C400E7C8B9 /* Lesson5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson5View.swift; sourceTree = "<group>"; };
+		4D4857B726418B3900E7C8B9 /* Lesson6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson6View.swift; sourceTree = "<group>"; };
+		4D4857B926419D6C00E7C8B9 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../../../../../.Trash/HomeView.swift; sourceTree = "<group>"; };
 		4D4EB66725F68B9400D6B2E4 /* Lesson1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson1View.swift; sourceTree = "<group>"; };
 		4D4EB66B25F68D1E00D6B2E4 /* Lesson3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson3View.swift; sourceTree = "<group>"; };
 		4D8A859725DD5DC90043C724 /* SwiftUI-Studyguide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Studyguide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,16 +82,22 @@
 			children = (
 				4D8A859A25DD5DC90043C724 /* AppDelegate.swift */,
 				4D8A859C25DD5DC90043C724 /* SceneDelegate.swift */,
+				4D4857B926419D6C00E7C8B9 /* HomeView.swift */,
 				4D4EB66725F68B9400D6B2E4 /* Lesson1View.swift */,
 				4DF56D39260CD8FF005FE547 /* Lesson2View.swift */,
 				4D4EB66B25F68D1E00D6B2E4 /* Lesson3View.swift */,
 				4DCFA6B726370DC6007DEA31 /* Lesson4View.swift */,
 				4D19BD0D2639B14B00A116BC /* Lesson4DetailView.swift */,
-				4DCFA6B926370DD2007DEA31 /* DataModel.swift */,
+				4D418772265218D9001D522D /* TabsView.swift */,
+				4D4857B3264186C400E7C8B9 /* Lesson5View.swift */,
+				4D4857B726418B3900E7C8B9 /* Lesson6View.swift */,
 				4D329E5F2624799C001089D3 /* AboutView.swift */,
+				4D418770264A3C98001D522D /* CoreDataManager.swift */,
+				4DCFA6B926370DD2007DEA31 /* DataModel.swift */,
 				4D8A85A025DD5DCE0043C724 /* Assets.xcassets */,
 				4D8A85A525DD5DCE0043C724 /* LaunchScreen.storyboard */,
 				4D8A85A825DD5DCE0043C724 /* Info.plist */,
+				4D16FC0626441C4100E58A6E /* CoreDataStudyGuide.xcdatamodeld */,
 				4D8A85A225DD5DCE0043C724 /* Preview Content */,
 			);
 			path = "SwiftUI-Studyguide";
@@ -165,14 +183,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D4EB66825F68B9400D6B2E4 /* Lesson1View.swift in Sources */,
+				4D4857B826418B3900E7C8B9 /* Lesson6View.swift in Sources */,
 				4D4EB66C25F68D1E00D6B2E4 /* Lesson3View.swift in Sources */,
+				4D418771264A3C98001D522D /* CoreDataManager.swift in Sources */,
 				4D19BD0E2639B14B00A116BC /* Lesson4DetailView.swift in Sources */,
 				4D8A859B25DD5DC90043C724 /* AppDelegate.swift in Sources */,
 				4D8A859D25DD5DC90043C724 /* SceneDelegate.swift in Sources */,
+				4D4857B4264186C400E7C8B9 /* Lesson5View.swift in Sources */,
 				4D329E602624799C001089D3 /* AboutView.swift in Sources */,
 				4DCFA6BA26370DD2007DEA31 /* DataModel.swift in Sources */,
+				4D4857BA26419D6C00E7C8B9 /* HomeView.swift in Sources */,
 				4DCFA6B826370DC6007DEA31 /* Lesson4View.swift in Sources */,
 				4DF56D3A260CD8FF005FE547 /* Lesson2View.swift in Sources */,
+				4D16FC0826441C4100E58A6E /* CoreDataStudyGuide.xcdatamodeld in Sources */,
+				4D418773265218D9001D522D /* TabsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +390,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4D16FC0626441C4100E58A6E /* CoreDataStudyGuide.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D16FC0726441C4100E58A6E /* CoreDataStudyGuide.xcdatamodel */,
+			);
+			currentVersion = 4D16FC0726441C4100E58A6E /* CoreDataStudyGuide.xcdatamodel */;
+			path = CoreDataStudyGuide.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4D8A858F25DD5DC90043C724 /* Project object */;
 }
